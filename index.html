@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title></title>
+</head>
+<body>
+
+	<div id="loader">
+		
+		<div id="myNameCode">
+
+			<span class="left_code"><</span> Luka Kupunia <span class="right_code">/></span>
+			<div id="loaderStick"></div>
+
+		</div>
+
+	</div>
+
+	<div id="mainBody">
+		
+		<header>
+			
+			<h1>Luka Kupunia</h1>
+
+			<h2>Front-End Web Developer</h2>
+
+		</header>
+		
+		<section>
+			
+			<div id='section'>
+				
+				<div id="p_circle" class="luka">
+					
+					<div id="myImage"></div>
+
+					<div class="btn about activebox" data-target='aboutTar'>About</div>
+					<div class="btn work" data-target='workTar'>Work</div>
+					<div class="btn contact" data-target='contactTar'>Contact</div>	
+
+				</div>
+
+				<div id="myList">
+					
+					<div class="target aboutTar" style="display: block;">
+						
+						<p><span>H</span>i, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					</div>
+					<div class="target workTar">2</div>
+					<div class="target contactTar">3</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+	</div>
+
+<script type="text/javascript">
+	
+	$(function(){
+	
+		setTimeout(function() {  
+
+			$('#loader').fadeToggle(500);
+
+		}, 6300);
+
+	})
+ 
+	setTimeout(function() {
+
+		$('#p_circle').removeClass('luka');
+
+	}, 1000);
+	$(function(){
+
+
+		$('.btn').on('click' , function(){
+
+			if ($(this).hasClass('activebox')) {
+				return;
+			}else {
+
+			var work = $('.work');
+			var about = $('.about');
+			var contact = $('.contact');
+			var p_circle = $('#p_circle');
+			var myImage = $('#myImage');
+			var target = $(this).attr('data-target');
+			var myList = $('#myList');
+			var targetBox = $('.target');
+			var test = '.' + target;
+
+			$('#p_circle > .btn').removeClass('activebox');
+			$(this).addClass('activebox');
+			myList.find(targetBox).hide();
+			myList.find(test).fadeIn(500);
+
+			if (work.hasClass('activebox')) {
+
+				myImage.css({ transform: 'rotate(67deg)' ,transition : '.3s'});
+				work.css({ transform: 'rotate(67deg)' , left : '151px' , top : '389px',transition : '.3s'});
+				about.css({ transform: 'rotate(67deg)' ,transition : '.3s'});
+				contact.css({ transform: 'rotate(67deg)', left : '-84px' , top : '158px' ,transition : '.3s'});
+				p_circle.css({ transform: 'rotate(-67deg)' , transition : '.3s' });
+
+
+			}
+			if (about.hasClass('activebox')) {
+
+				p_circle.css({ transform: 'rotate(0deg)' ,transition : '.3s'});
+				myImage.css({ transform: 'rotate(0deg)' ,transition : '.3s'});
+				work.css({ transform: 'rotate(0deg)' , left : '100px' , top : '367px',transition : '.3s'});
+				about.css({ transform: 'rotate(0deg)' ,transition : '.3s'});
+				contact.css({ transform: 'rotate(0deg)', left : '-89px' , top : '239px' ,transition : '.3s'});
+
+			}
+			if (contact.hasClass('activebox')) {
+
+				p_circle.css({ transform: 'rotate(-137deg)' ,transition : '.3s'});
+				myImage.css({ transform: 'rotate(137deg)' ,transition : '.3s'});
+				work.css({ transform: 'rotate(137deg)' , left : '100px' , top : '384px',transition : '.3s'});
+				about.css({ transform: 'rotate(137deg)' ,transition : '.3s'});
+				contact.css({ transform: 'rotate(137deg)', left : '-89px' , top : '239px' ,transition : '.3s'});
+
+			}
+
+			}
+
+			
+
+		})
+
+	})
+
+</script>
+
+</body>
+</html>
